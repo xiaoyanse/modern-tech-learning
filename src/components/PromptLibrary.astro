@@ -1,0 +1,18 @@
+---
+import { PromptCopy } from './PromptCopy';
+import prompts from '../data/prompts.json';
+
+const { group } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+{prompts.filter(prompt => prompt.lesson.startsWith(group + '/')).map(prompt => (
+  <details class="prompt-entry">
+    <summary>{prompt.title}</summary>
+    <pre class="prompt-text">{prompt.text}</pre>
+    <div class="prompt-actions">
+      <PromptCopy client:visible title={prompt.title} value={prompt.text} />
+      <a href={`${base}/${prompt.lesson}/`}>阅读来源课程</a>
+    </div>
+  </details>
+))}

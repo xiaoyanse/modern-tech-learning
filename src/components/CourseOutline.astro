@@ -1,0 +1,8 @@
+---
+import { CourseProgress } from './LearningProgress';
+import { courses } from '../data/courses.mjs';
+
+const { group } = Astro.props;
+const course = courses.find(course => course.id === group);
+---
+{course && <CourseProgress client:load lessons={course.lessons} />}

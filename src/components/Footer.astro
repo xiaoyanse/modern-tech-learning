@@ -1,0 +1,13 @@
+---
+import Default from '@astrojs/starlight/components/Footer.astro';
+import { LessonProgress } from './LearningProgress';
+import { courses } from '../data/courses.mjs';
+
+const { id } = Astro.locals.starlightRoute;
+const lesson = courses.flatMap(course => course.lessons).find(lesson => lesson.id === id);
+---
+
+{lesson && <div class="lesson-completion not-content">
+  <LessonProgress client:load id={lesson.id} />
+</div>}
+<Default />

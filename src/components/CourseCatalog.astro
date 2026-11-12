@@ -1,0 +1,14 @@
+---
+import { courses } from '../data/courses.mjs';
+import CourseOutline from './CourseOutline.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<div class="home-courses">
+  {courses.map(course => (
+    <section>
+      <h2><a href={`${base}/${course.id}/`}>{course.title}</a></h2>
+      <CourseOutline group={course.id} />
+    </section>
+  ))}
+</div>
