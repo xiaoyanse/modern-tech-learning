@@ -12,7 +12,7 @@ export default defineConfig({
     starlight({
       title: '现代技术学习手册',
       favicon: '/favicon.png',
-      description: '从软件与 AI 技术全景到专业 UI，按场景认识技术、理解分工并练习选型。',
+      description: '按场景学习现代软件、AI 与 UI 技术，查阅后端技术选型和系统架构规划。',
       defaultLocale: 'root',
       locales: { root: { label: '简体中文', lang: 'zh-CN' } },
       social: [{ icon: 'github', label: 'GitHub 源码', href: 'https://github.com/xiaoyanse/modern-tech-learning' }],
@@ -20,10 +20,10 @@ export default defineConfig({
       components: { Footer: './src/components/Footer.astro' },
       sidebar: [
         { label: '课程首页', link: '/' },
-        ...courses.map(({ id, title, lessons }) => ({
-          label: title,
+        ...courses.map(({ id, title, lessons, status }) => ({
+          label: status === 'planned' ? title + '（规划中）' : title,
           items: [
-            { label: '学习路线', slug: id },
+            { label: status === 'planned' ? '课程规划' : '学习路线', slug: id },
             ...lessons.map(({ id, number, title }) => ({ label: number + ' ' + title, slug: id })),
           ],
         })),

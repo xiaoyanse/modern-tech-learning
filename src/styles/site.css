@@ -52,7 +52,7 @@
 .home-courses {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  gap: clamp(1.5rem, 5vw, 5rem);
+  gap: clamp(1.5rem, 3vw, 3rem);
   border-block: 1px solid var(--sl-color-hairline);
   padding-block: 1.5rem;
 }
@@ -84,6 +84,9 @@
 .prompt-actions a { font-size: .875rem; }
 .sl-markdown-content .prompt-entry { overflow-anchor: none; }
 .tech-links { line-height: 2; }
+@media (min-width: 70rem) {
+  .home-courses { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 48rem) {
   .home-courses { grid-template-columns: 1fr; gap: 1.75rem; }
 }

@@ -4,7 +4,9 @@ import { LessonProgress } from './LearningProgress';
 import { courses } from '../data/courses.mjs';
 
 const { id } = Astro.locals.starlightRoute;
-const lesson = courses.flatMap(course => course.lessons).find(lesson => lesson.id === id);
+const lesson = courses.filter(course => course.status === 'published')
+  .flatMap(course => course.lessons)
+  .find(lesson => lesson.id === id);
 ---
 
 {lesson && <div class="lesson-completion not-content">

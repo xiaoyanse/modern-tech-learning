@@ -35,7 +35,7 @@ export function LessonProgress({ id }: { id: string }) {
 
   return (
     <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-input bg-secondary px-4 py-3">
-      <span role="status">{error ? '此浏览器无法保存进度。' : done ? '本课已完成，进度已保存。' : '进度保存在此浏览器。'}</span>
+      <span role="status">{error ? '此浏览器无法保存进度。' : done ? '本课已完成，进度已保存。' : '进度仅保存在当前浏览器。'}</span>
       <Button type="button" aria-pressed={done ?? false} disabled={done === null} onClick={toggle}>
         {done ? '取消完成' : '标记为已完成'}
       </Button>
@@ -69,25 +69,42 @@ export function CourseProgress({ lessons }: { lessons: Lesson[] }) {
   }, []);
 
   const count = lessons.filter(lesson => completed.includes(lesson.id)).length;
-  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   return (
     <section className="course-progress not-content" aria-label="章节与进度">
       <p className="course-count" role="status">
         {error ? '此浏览器无法读取进度' : loaded ? `已完成 ${count} / ${lessons.length} 课` : `共 ${lessons.length} 课`}
       </p>
-      <ol className="lesson-list">
-        {lessons.map(lesson => (
-          <li key={lesson.id}>
-            <span className="lesson-number" aria-hidden="true">{lesson.number}</span>
-            <div>
-              <a href={`${base}/${lesson.id}/`}>{lesson.title}</a>
-              <p>{lesson.summary}</p>
-            </div>
-            {completed.includes(lesson.id) && <span className="done-label">已完成</span>}
-          </li>
-        ))}
-      </ol>
+      <LessonList lessons={lessons} completed={completed} />
     </section>
+  );
+}
+
+
+export function PlannedCourseOutline({ lessons }: { lessons: Lesson[] }) {
+  return (
+    <section className="course-progress not-content" aria-label="规划章节与进度">
+      <p className="course-count">规划中 · 拟设 {lessons.length} 节 · 暂不计入学习进度</p>
+      <LessonList lessons={lessons} completed={[]} />
+    </section>
+  );
+}
+
+function LessonList({ lessons, completed }: { lessons: Lesson[]; completed: string[] }) {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+  return (
+    <ol className="lesson-list">
+      {lessons.map(lesson => (
+        <li key={lesson.id}>
+          <span className="lesson-number" aria-hidden="true">{lesson.number}</span>
+          <div>
+            <a href={`${base}/${lesson.id}/`}>{lesson.title}</a>
+            <p>{lesson.summary}</p>
+          </div>
+          {completed.includes(lesson.id) && <span className="done-label">已完成</span>}
+        </li>
+      ))}
+    </ol>
   );
 }

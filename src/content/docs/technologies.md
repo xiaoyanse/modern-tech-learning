@@ -293,3 +293,27 @@ description: 按课程查找项目、文档和官方参考。
 | --- | --- | --- |
 | Playwright | [文档](https://playwright.dev/docs/intro) | [GitHub](https://github.com/microsoft/playwright) |
 | WCAG 2.2 | [官方入口](https://www.w3.org/TR/WCAG22/) | 不适用 |
+
+## 现代后端技术选型与系统架构（规划中）
+
+这些是后端大纲的候选资料，可先用来比较技术职责与接入边界。
+
+| 技术或项目 | 拟比较的用途 | 官方资料 | GitHub |
+| --- | --- | --- | --- |
+| FastAPI | Python HTTP API | [文档](https://fastapi.tiangolo.com/) | [GitHub](https://github.com/fastapi/fastapi) |
+| Django | Python 业务应用 | [文档](https://docs.djangoproject.com/) | [GitHub](https://github.com/django/django) |
+| axum | Rust HTTP 服务 | [文档](https://docs.rs/axum/latest/axum/) | [GitHub](https://github.com/tokio-rs/axum) |
+| Drogon | C++ HTTP 服务 | [项目说明](https://github.com/drogonframework/drogon#readme) | [GitHub](https://github.com/drogonframework/drogon) |
+| Spring Boot | Java 业务应用 | [文档](https://docs.spring.io/spring-boot/index.html) | [GitHub](https://github.com/spring-projects/spring-boot) |
+| Gin | Go HTTP 服务 | [文档](https://gin-gonic.com/en/docs/) | [GitHub](https://github.com/gin-gonic/gin) |
+| ASP.NET Core | C# / .NET Web 服务 | [文档](https://learn.microsoft.com/aspnet/core/) | [GitHub](https://github.com/dotnet/aspnetcore) |
+| Spring Modulith | Java 模块化单体 | [文档](https://docs.spring.io/spring-modulith/reference/) | [GitHub](https://github.com/spring-projects/spring-modulith) |
+| Java FFM | Java 调用原生接口 | [文档](https://docs.oracle.com/en/java/javase/25/core/foreign-function-and-memory-api.html) | [OpenJDK](https://github.com/openjdk/jdk) |
+| PyO3 | Python 与 Rust 绑定 | [文档](https://pyo3.rs/) | [GitHub](https://github.com/PyO3/pyo3) |
+| pybind11 | Python 与 C++ 绑定 | [文档](https://pybind11.readthedocs.io/en/stable/) | [GitHub](https://github.com/pybind/pybind11) |
+| OpenAPI | HTTP API 描述与契约 | [规范](https://spec.openapis.org/oas/latest.html) | [GitHub](https://github.com/OAI/OpenAPI-Specification) |
+| gRPC | 跨进程和跨语言 RPC | [文档](https://grpc.io/docs/) | [GitHub](https://github.com/grpc/grpc) |
+| Docker Compose | 组合运行容器服务 | [文档](https://docs.docker.com/compose/) | [GitHub](https://github.com/docker/compose) |
+| OpenTelemetry | 采集和传递遥测数据 | [文档](https://opentelemetry.io/docs/) | [GitHub](https://github.com/open-telemetry/opentelemetry-collector) |
+
+[查看后端课程规划](../backend/)
