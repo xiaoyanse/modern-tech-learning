@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 
 const colors = [
@@ -8,6 +8,8 @@ const colors = [
 ];
 
 export function TokenDemo() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => setReady(true), []);
   const [color, setColor] = useState(colors[0].value);
   const [compact, setCompact] = useState(false);
   const [rounded, setRounded] = useState(false);
@@ -21,13 +23,14 @@ export function TokenDemo() {
           <Button key={option.value} type="button" size="sm"
             variant={color === option.value ? 'default' : 'outline'}
             aria-pressed={color === option.value}
+            disabled={!ready}
             onClick={() => setColor(option.value)}>{option.label}</Button>
         ))}
       </fieldset>
       <div className="flex flex-wrap gap-3">
-        <label><input type="checkbox" checked={compact} onChange={e => setCompact(e.target.checked)} /> 紧凑间距</label>
-        <label><input type="checkbox" checked={rounded} onChange={e => setRounded(e.target.checked)} /> 大圆角</label>
-        <label><input type="checkbox" checked={dark} onChange={e => setDark(e.target.checked)} /> 深色主题</label>
+        <label><input type="checkbox" disabled={!ready} checked={compact} onChange={e => setCompact(e.target.checked)} /> 紧凑间距</label>
+        <label><input type="checkbox" disabled={!ready} checked={rounded} onChange={e => setRounded(e.target.checked)} /> 大圆角</label>
+        <label><input type="checkbox" disabled={!ready} checked={dark} onChange={e => setDark(e.target.checked)} /> 深色主题</label>
       </div>
       <div
         aria-label="设计令牌预览"
@@ -58,6 +61,8 @@ const checks = [
 ];
 
 export function ReviewChecklist() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => setReady(true), []);
   const [selected, setSelected] = useState<string[]>([]);
   const [copyState, setCopyState] = useState('');
 
@@ -72,7 +77,7 @@ export function ReviewChecklist() {
   }
 
   return (
-    <fieldset className="not-content grid gap-2 rounded-lg border border-input p-4">
+    <fieldset disabled={!ready} className="not-content grid gap-2 rounded-lg border border-input p-4">
       <legend className="px-2 font-semibold">UI 质量验收</legend>
       <p role="status">已检查 {selected.length} / {checks.length} 项</p>
       {checks.map(item => (
