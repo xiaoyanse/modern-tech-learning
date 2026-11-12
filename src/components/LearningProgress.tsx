@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
+import { isPublishedLesson } from '../data/courses.mjs';
 
 const key = 'modern-tech-learning:completed:v1';
 
@@ -43,7 +44,7 @@ export function LessonProgress({ id }: { id: string }) {
   );
 }
 
-type Lesson = { id: string; title: string; number: string; summary: string };
+type Lesson = { id: string; title: string; number: string; summary: string; status?: 'planned' };
 
 export function CourseProgress({ lessons }: { lessons: Lesson[] }) {
   const [completed, setCompleted] = useState<string[]>([]);
@@ -68,13 +69,16 @@ export function CourseProgress({ lessons }: { lessons: Lesson[] }) {
     };
   }, []);
 
-  const count = lessons.filter(lesson => completed.includes(lesson.id)).length;
+  const published = lessons.filter(isPublishedLesson);
+  const plannedCount = lessons.length - published.length;
+  const count = published.filter(lesson => completed.includes(lesson.id)).length;
 
   return (
     <section className="course-progress not-content" aria-label="章节与进度">
       <p className="course-count" role="status">
-        {error ? '此浏览器无法读取进度' : loaded ? `已完成 ${count} / ${lessons.length} 课` : `共 ${lessons.length} 课`}
+        {error ? '此浏览器无法读取进度' : loaded ? `已完成 ${count} / ${published.length} 课` : `已发布 ${published.length} 课`}
       </p>
+      {plannedCount > 0 && <p className="course-count">另有 {plannedCount} 节规划中，暂不计入学习进度。</p>}
       <LessonList lessons={lessons} completed={completed} />
     </section>
   );
@@ -102,7 +106,9 @@ function LessonList({ lessons, completed }: { lessons: Lesson[]; completed: stri
             <a href={`${base}/${lesson.id}/`}>{lesson.title}</a>
             <p>{lesson.summary}</p>
           </div>
-          {completed.includes(lesson.id) && <span className="done-label">已完成</span>}
+          {!isPublishedLesson(lesson)
+            ? <span className="planned-label">规划中</span>
+            : completed.includes(lesson.id) && <span className="done-label">已完成</span>}
         </li>
       ))}
     </ol>

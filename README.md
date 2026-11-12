@@ -5,9 +5,9 @@
 - **现代软件与 AI 技术认知课**：9 期，覆盖软件架构、视觉与端侧 AI、Agent、数据、前端与桌面、AI Coding、协作、安全与可靠性。
 - **现代 UI 技术组合与设计系统**：4 课，覆盖技术组合、统一规范、场景选型、AI 开发与 UI 验收。
 
-- **现代后端技术选型与系统架构**：规划中，拟设 8 节。各节页面为可搜索的大纲，不计入学习进度。
+- **现代后端技术选型与系统架构**：拟设 8 节，已发布第 1 节讲义。其余 7 节是可搜索的大纲，暂不计入学习进度。
 
-已发布课程正文来自两套对话课程的整理，保留案例与技术对比。较早的 32 节深度课程不在此范围。技术状态、兼容性和授权以官方资料为准。
+已发布课程保留案例与技术对比。后端系列以静态讲义直接发布，包含案例分析与参考资料。较早的 32 节深度课程不在此范围。技术状态、兼容性和授权以官方资料为准。
 
 Starlight 负责静态课程页面、导航和 Pagefind 全文搜索。学习进度、提示词复制及 UI 练习使用 React、Tailwind CSS 和 shadcn/ui。完成状态保存在当前浏览器配置文件中，无需登录。不同设备或浏览器配置文件各自记录，共用同一配置文件会共用进度。
 
@@ -26,8 +26,8 @@ npm run preview
 
 ## 内容维护
 
-- 课程正文在 `src/content/docs/tech/` 与 `src/content/docs/ui/`，后端大纲在 `src/content/docs/backend/`。
-- 新课需同时登记到 `src/data/courses.mjs`，其中稳定的课程 ID 用于进度保存。系列状态为 `planned` 时，章节可浏览和搜索，但不会提供完成标记。
+- 课程正文在 `src/content/docs/tech/` 与 `src/content/docs/ui/`，后端讲义与大纲在 `src/content/docs/backend/`。
+- 新课需同时登记到 `src/data/courses.mjs`，其中稳定的课程 ID 用于进度保存。章节状态为 `planned` 时仍可浏览和搜索，暂不计入学习进度，也不显示完成标记。发布讲义时移除该章节的 `planned` 状态。
 - 提示词库条目在 `src/data/prompts.json`。课程正文中的对应提示词同样可复制。
 - shadcn/ui 的 Button 来自其 [New York 官方注册表](https://ui.shadcn.com/r/styles/new-york/button.json)。
 - GitHub Pages 发布来源设为 GitHub Actions。推送至 `main` 后自动构建、索引并发布 `dist/`。

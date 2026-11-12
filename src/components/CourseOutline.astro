@@ -1,10 +1,10 @@
 ---
 import { CourseProgress, PlannedCourseOutline } from './LearningProgress';
-import { courses } from '../data/courses.mjs';
+import { courses, isPublishedLesson } from '../data/courses.mjs';
 
 const { group } = Astro.props;
 const course = courses.find(course => course.id === group);
 ---
-{course && (course.status === 'planned'
+{course && (!course.lessons.some(isPublishedLesson)
   ? <PlannedCourseOutline lessons={course.lessons} />
   : <CourseProgress client:load lessons={course.lessons} />)}

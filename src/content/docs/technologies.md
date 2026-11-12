@@ -294,9 +294,24 @@ description: 按课程查找项目、文档和官方参考。
 | Playwright | [文档](https://playwright.dev/docs/intro) | [GitHub](https://github.com/microsoft/playwright) |
 | WCAG 2.2 | [官方入口](https://www.w3.org/TR/WCAG22/) | 不适用 |
 
-## 现代后端技术选型与系统架构（规划中）
+## 现代后端技术选型与系统架构
 
-这些是后端大纲的候选资料，可先用来比较技术职责与接入边界。
+这些资料用于比较后端技术职责与接入边界。
+
+### 第 01 节 · 现代后端技术全景
+
+[阅读设备巡检系统讲义](../backend/01/)。
+
+| 技术或项目 | 在案例中的职责 | 官方文档 | GitHub |
+| --- | --- | --- | --- |
+| PostgreSQL | 巡检记录、异常单与报告任务状态 | [事务](https://www.postgresql.org/docs/current/tutorial-transactions.html) | [GitHub](https://github.com/postgres/postgres) |
+| Caddy | HTTPS 与反向代理 | [反向代理](https://caddyserver.com/docs/caddyfile/directives/reverse_proxy) | [GitHub](https://github.com/caddyserver/caddy) |
+| Celery | 分发与执行后台任务 | [文档](https://docs.celeryq.dev/en/stable/getting-started/introduction.html) | [GitHub](https://github.com/celery/celery) |
+| RabbitMQ | 消息代理 | [任务队列示例](https://www.rabbitmq.com/tutorials/tutorial-two-python) | [GitHub](https://github.com/rabbitmq/rabbitmq-server) |
+| Redis | 缓存热点查询结果 | [文档](https://redis.io/docs/latest/develop/reference/eviction/) | [GitHub](https://github.com/redis/redis) |
+| OpenSearch | 全文检索 | [文档](https://docs.opensearch.org/latest/) | [GitHub](https://github.com/opensearch-project/OpenSearch) |
+
+### 系列参考项目
 
 | 技术或项目 | 拟比较的用途 | 官方资料 | GitHub |
 | --- | --- | --- | --- |

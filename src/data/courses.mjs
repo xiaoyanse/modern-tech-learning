@@ -57,8 +57,7 @@ export const courses = [
         "number": "09",
         "summary": "覆盖身份权限、供应链、可观测性及备份恢复。"
       }
-    ],
-    "status": "published"
+    ]
   },
   {
     "id": "ui",
@@ -88,13 +87,11 @@ export const courses = [
         "number": "04",
         "summary": "从需求和选型走到代表页、组件复用及实际验收。"
       }
-    ],
-    "status": "published"
+    ]
   },
   {
     "id": "backend",
     "title": "现代后端技术选型与系统架构",
-    "status": "planned",
     "lessons": [
       {
         "id": "backend/01",
@@ -106,44 +103,55 @@ export const courses = [
         "id": "backend/02",
         "title": "编程语言与应用场景选型",
         "number": "02",
-        "summary": "比较业务交付、性能约束、团队能力、部署与长期维护。"
+        "summary": "比较业务交付、性能约束、团队能力、部署与长期维护。",
+        "status": "planned"
       },
       {
         "id": "backend/03",
         "title": "Python、Rust、C++、Java、Go、C# 的后端技术生态",
         "number": "03",
-        "summary": "按 Web 服务、计算、设备和基础设施认识代表性生态。"
+        "summary": "按 Web 服务、计算、设备和基础设施认识代表性生态。",
+        "status": "planned"
       },
       {
         "id": "backend/04",
         "title": "单体、模块化单体、SDK、插件与微服务",
         "number": "04",
-        "summary": "区分应用部署方式、代码边界与扩展方式。"
+        "summary": "区分应用部署方式、代码边界与扩展方式。",
+        "status": "planned"
       },
       {
         "id": "backend/05",
         "title": "多语言混合架构与跨语言协作",
         "number": "05",
-        "summary": "比较 Java + C++、Python + Rust、Python + C++，以及进程内和进程间边界。"
+        "summary": "比较 Java + C++、Python + Rust、Python + C++，以及进程内和进程间边界。",
+        "status": "planned"
       },
       {
         "id": "backend/06",
         "title": "服务通信、API 与数据架构",
         "number": "06",
-        "summary": "按调用方式、契约演进、数据归属与一致性选择方案。"
+        "summary": "按调用方式、契约演进、数据归属与一致性选择方案。",
+        "status": "planned"
       },
       {
         "id": "backend/07",
         "title": "后端项目搭建、部署与运行管理",
         "number": "07",
-        "summary": "规划环境、配置、自动交付、监控和故障恢复。"
+        "summary": "规划环境、配置、自动交付、监控和故障恢复。",
+        "status": "planned"
       },
       {
         "id": "backend/08",
         "title": "综合场景架构选型实践",
         "number": "08",
-        "summary": "练习为业务系统、工业视觉和内部平台提出可验证的候选架构。"
+        "summary": "练习为业务系统、工业视觉和内部平台提出可验证的候选架构。",
+        "status": "planned"
       }
     ]
   }
 ];
+
+export function isPublishedLesson(lesson) {
+  return lesson.status !== 'planned';
+}
