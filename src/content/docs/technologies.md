@@ -311,7 +311,7 @@ description: 按课程查找项目、文档和官方参考。
 | Redis | 缓存热点查询结果 | [文档](https://redis.io/docs/latest/develop/reference/eviction/) | [GitHub](https://github.com/redis/redis) |
 | OpenSearch | 全文检索 | [文档](https://docs.opensearch.org/latest/) | [GitHub](https://github.com/opensearch-project/OpenSearch) |
 
-### 系列参考项目
+### 第 02–08 节 · 系列参考项目
 
 | 技术或项目 | 拟比较的用途 | 官方资料 | GitHub |
 | --- | --- | --- | --- |
@@ -330,5 +330,12 @@ description: 按课程查找项目、文档和官方参考。
 | gRPC | 跨进程和跨语言 RPC | [文档](https://grpc.io/docs/) | [GitHub](https://github.com/grpc/grpc) |
 | Docker Compose | 组合运行容器服务 | [文档](https://docs.docker.com/compose/) | [GitHub](https://github.com/docker/compose) |
 | OpenTelemetry | 采集和传递遥测数据 | [文档](https://opentelemetry.io/docs/) | [GitHub](https://github.com/open-telemetry/opentelemetry-collector) |
+| Tokio | Rust 异步运行时 | [文档](https://tokio.rs/) | [GitHub](https://github.com/tokio-rs/tokio) |
+| Go | 网络服务与部署工具 | [文档](https://go.dev/doc/) | [GitHub](https://github.com/golang/go) |
+| Rust | 系统组件与性能敏感模块 | [文档](https://doc.rust-lang.org/book/) | [GitHub](https://github.com/rust-lang/rust) |
+| OpenCV | 图像处理与工业视觉 | [项目文档入口](https://github.com/opencv/opencv/wiki) | [GitHub](https://github.com/opencv/opencv) |
+| Protocol Buffers | 跨语言数据结构与编码 | [文档](https://protobuf.dev/overview/) | [GitHub](https://github.com/protocolbuffers/protobuf) |
+| NATS JetStream | 持久化消息和重放 | [文档](https://docs.nats.io/concepts/jetstream) | [GitHub](https://github.com/nats-io/nats-server) |
+| Kubernetes | 多节点部署与滚动更新 | [文档](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) | [GitHub](https://github.com/kubernetes/kubernetes) |
 
-[查看后端课程规划](../backend/)
+[查看后端课程目录](../backend/)

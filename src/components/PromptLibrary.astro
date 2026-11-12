@@ -12,7 +12,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <pre class="prompt-text">{prompt.text}</pre>
     <div class="prompt-actions">
       <PromptCopy client:visible title={prompt.title} value={prompt.text} />
-      <a href={`${base}/${prompt.lesson}/`}>{group === 'backend' ? '查看对应大纲' : '阅读来源课程'}</a>
+      <a href={`${base}/${prompt.lesson}/`}>阅读来源课程</a>
     </div>
   </details>
 ))}
